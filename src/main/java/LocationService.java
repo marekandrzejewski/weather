@@ -14,7 +14,7 @@ public class LocationService {
             throw new RuntimeException("Content nie moze byc pusty");
         }
 
-        Location location = new Location(city, region, country, latitude, longitude);
+        Location location = new Location(null, city, region, country, latitude, longitude);
 
         return locationRepository.save(location);
     }

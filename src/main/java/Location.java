@@ -1,15 +1,15 @@
 public class Location {
-    long id;
-    String city;
-    String region;
-    String country;
-    float latitude;
-    float longitude;
+    private Long id;
+    private String city;
+    private String region;
+    private String country;
+    private float latitude;
+    private float longitude;
 
     public Location() {
     }
 
-    public Location(long id, String city, String region, String country, float latitude, float longitude) {
+    public Location(Long id, String city, String region, String country, float latitude, float longitude) {
         this.id = id;
         this.city = city;
         this.region = region;
