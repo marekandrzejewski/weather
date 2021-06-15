@@ -1,3 +1,5 @@
+package weather;
+
 public class LocationService {
     private final LocationRepository locationRepository;
 

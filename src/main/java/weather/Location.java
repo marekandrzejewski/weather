@@ -1,3 +1,5 @@
+package weather;
+
 public class Location {
     private Long id;
     private String city;
