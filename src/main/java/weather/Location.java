@@ -1,17 +1,29 @@
 package weather;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "location")
+
 public class Location {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String city;
     private String region;
     private String country;
-    private float latitude;
-    private float longitude;
+    @NotNull
+    private Double latitude;
+    @NotNull
+    private Double longitude;
 
     public Location() {
     }
 
-    public Location(Long id, String city, String region, String country, float latitude, float longitude) {
+    public Location(Long id, String city, String region, String country, Double latitude, Double longitude) {
         this.id = id;
         this.city = city;
         this.region = region;
@@ -52,19 +64,19 @@ public class Location {
         this.country = country;
     }
 
-    public float getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public float getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 }

@@ -1,5 +1,7 @@
 package weather;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class LocationController {
     private final LocationService locationService;
 
@@ -9,10 +11,12 @@ public class LocationController {
 
 
 
-    public String addNewLocation(String city, String region, String country, float latitude, float longitude) {
+    public String addNewLocation(String city, String region, String country, Double latitude, Double longitude) {
         try {
             Location newLocation = locationService.addNewLocation(city, region, country, latitude, longitude);
-            // todo use object mapper
+            // todo use new object mapper alt+enter add maven dependency
+            //  fail on unknown property - false
+            ObjectMapper objectMapper = new ObjectMapper();
             return  newLocation.getCity() + " " + newLocation.getRegion() + " " + newLocation.getCountry()
                     + " " + newLocation.getLatitude() + " " + newLocation.getLongitude();
         } catch (Exception e) {

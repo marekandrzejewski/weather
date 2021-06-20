@@ -25,4 +25,12 @@ public class LocationServiceTest {
             //then
             assertThat(result.getCountry().isEmpty());
     }
+    @Test
+    public void addNewLocation_latitudeIsEmpty(){
+        //given
+        //when
+        Location result = locationService.addNewLocation("xxx", "xx", "xxxc", null, 56);
+        //then
+        assertThat(result.getLatitude().isNaN());
+    }
 }

@@ -2,21 +2,20 @@ package weather;
 
 public class LocationService {
     private final LocationRepository locationRepository;
-
+    private LocationValidation locationValidation;
 
     public LocationService(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;
     }
 
-    Location addNewLocation(String city, String region, String country, float latitude, float longitude) {
-        if (city == null || city.isEmpty()) {
-            throw new RuntimeException("Tytul nie moze byc pusty");
-        }
-        if (country == null || country.isEmpty()) {
-            throw new RuntimeException("Content nie moze byc pusty");
-        }
 
+    public Location addNewLocation(String city, String region, String country, Double latitude, Double longitude) {
+           locationValidation.validate();
+            // todo more data validations
         Location location = new Location(null, city, region, country, latitude, longitude);
+            // todo region -> "   "
+            //  set region if value is correct newLocation.setRegion(value);
+            // streams Optional.ofNullable(region).filter(...).ifPresent(...);
 
         return locationRepository.save(location);
     }

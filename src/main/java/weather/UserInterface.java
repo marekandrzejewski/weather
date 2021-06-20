@@ -47,9 +47,9 @@ public class UserInterface {
         System.out.println("Your location's country is: ");
         String country = scanner.nextLine();
         System.out.println("Your location's latitude is: ");
-        float latitude = scanner.nextFloat();
+        Double latitude = scanner.nextDouble();
         System.out.println("Your location's longitude is: ");
-        float longitude = scanner.nextFloat();
+        Double longitude = scanner.nextDouble();
         String httpResponseBody = locationController.addNewLocation(city, region, country, latitude, longitude);
         System.out.println("Odpowiedź z servera: " + httpResponseBody);
         System.out.println();
